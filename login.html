@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bootstrap Dashboard by Bootstrapious.com</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- jQuery Circle-->
+    <link rel="stylesheet" href="css/grasp_mobile_progress_circle-1.0.0.min.css">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="node_modules/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script data-require="angular-translate@*" data-semver="2.5.0"
+        src="https://cdn.rawgit.com/angular-translate/bower-angular-translate/2.5.0/angular-translate.js"></script>
+    <script src="https://code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.6.9/angular-cookies.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-mask/1.6.3/mask.js"></script>
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body ng-controller="LoginController">
+    <div class="page login-page">
+        <div class="container">
+            <div class="form-outer text-center d-flex align-items-center">
+                <div class="form-inner">
+                    <div class="logo text-uppercase"><span>Insurance-</span><strong
+                            class="text-primary">Management</strong></div>
+                    <p></p>
+                    <form method="get" class="text-left form-validate" name="Login" ng-submit="DoLogin(Login.$valid)">
+
+                        <div class="form-group-material">
+                            <input id="login-username" ng-model="user.agency" type="text" name="loginAgency"
+                                required data-msg="Please enter your username" class="input-material" required>
+                            <label for="login-username" class="label-material">Agency Code</label>
+                        </div>
+                        <div class="form-group-material">
+                            <input id="login-username" ng-model="user.username" type="text" name="loginUsername"
+                                required data-msg="Please enter your username" class="input-material" required>
+                            <label for="login-username" class="label-material">Username</label>
+                        </div>
+                        <div class="form-group-material">
+                            <input id="login-password" ng-model="user.password" type="password" name="loginPassword"
+                                required data-msg="Please enter your password" class="input-material" required>
+                            <label for="login-password" class="label-material">Password</label>
+                        </div>
+                        <div class="form-group text-center">
+                            <input id="login" type="submit" value="Login" class="btn btn-primary" />
+                            <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+                        </div>
+                    </form>
+                </div>
+                <div class="copyrights text-center">
+                    <p><a class="external"></a></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+
+
+    <script src="js/AngularApp.js"></script>
+    <script src="js/controllers/LoginController.js"></script>
+
+</body>
+
+</html>

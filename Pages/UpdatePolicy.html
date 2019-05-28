@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-lg-8 mx-auto marco">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h4>Update Policy</h4>
+            </div>
+            <div class="card-body">
+                <form class="form" name="save_form" ng-submit="save_customer()">
+
+                    <div class="divider">
+                        <h3>Policy Infromation:</h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Policy Type</label>
+                            <select class="form-control" name="location" ng-model="policy.policy_type">
+                                <option ng-repeat="type in Types_policies" value="{{type.id}}">{{type.name}}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Insurance Company</label>
+                            <select class="form-control" name="location" ng-model="policy.company_id">
+                                <option ng-repeat="c in companies" value="{{c.id}}">{{c.nombre}}</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Policy Number</label>
+                            <input ng-class="{ 'error' : save_form.policy_number.$invalid && !save_form.policy_number.$pristine }"
+                                   ng-model="policy.policynumber" id="inlineFormInput" type="text" name="policy_number"
+                                   class="mr-3 form-control" placeholder="132464897" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Policy Location</label>
+                            <select class="form-control" name="location" ng-model="policy.location">
+                                <option value="1">OldTown</option>
+                                <option value="2">CVA</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">ADC Number</label>
+                            <input ng-model="policy.adc_number" id="inlineFormInput" type="email"
+                                   class="mr-3 form-control" placeholder="4243">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Status Policy</label>
+                            <input ng-model="policy.adc_number" id="inlineFormInput" type="email"
+                                   class="mr-3 form-control" placeholder="4243">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Cancellation Date</label>
+                            <input ng-model="policy.date_cancellation" id="inlineFormInput" type="date"
+                                   class="mr-3 form-control" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Expiration Date</label>
+                            <input ng-model="policy.date_expiration" id="inlineFormInput" type="date"
+                                   class="mr-3 form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input ng-disabled="ShowButon" type="submit" value="Save" class="mr-3 btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

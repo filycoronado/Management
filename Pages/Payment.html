@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h4>Renovacion:</h4>
+            </div>
+            <div class="card-body">
+                <form class="form" name="save_form" ng-submit="save_pay()">
+                    <div  class="divider">
+                        <h3>Servicio y pago:</h3> 
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput" >Servicio</label>
+
+                            <select class="form-control" name="servicio" ng-class="{ 'error' : save_form.servicio.$invalid && !save_form.servicio.$pristine }" ng-model="service.type" disabled >
+                                <option value="1" >GYM</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInputGroup" >Tipo Membresia</label>
+                            <select class="form-control" name="tipo_membresia" ng-class="{ 'error' : save_form.tipo_membresia.$invalid && !save_form.tipo_membresia.$pristine }" ng-model="service.type_member" required ng-change="calculate_price()">
+                                <option value="1">Visita</option>
+                                <option value="2">Semanal</option>
+                                <option value="3">Mensual</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInputGroup" >Promosion</label>
+                            <select ng-disabled="!(service.type_member === '3')" class="form-control" name="promo" ng-class="{ 'error' : save_form.promo.$invalid && !save_form.promo.$pristine }" ng-model="service.promosion" required  ng-change="calculate_price()">
+                                <option value="1">Regular</option>
+                                <option value="2">2X250</option>
+                                <option value="3">4X400</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput" >Total</label>
+                            <input ng-model="pay.total" id="inlineFormInput" type="number" class="mr-3 form-control"   placeholder="0.00" required disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInputGroup" >Recibi</label>
+                            <input ng-change="calculate_change()" ng-model="pay.paid" id="inlineFormInputGroup" type="number"  class="mr-3 form-control form-control" placeholder="0.00" required> 
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInputGroup" >Cambio</label>
+                            <input ng-model="pay.change" id="inlineFormInputGroup" type="text"  class="mr-3 form-control form-control" placeholder="0.00" disabled> 
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input ng-disabled="ShowButon" type="submit" value="Guardar" class="mr-3 btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

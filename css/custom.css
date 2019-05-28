@@ -1,0 +1,37 @@
+.error {
+    border-color: red !important;
+}
+
+.divider {
+    background-color: #c30c0c;
+    color: white;
+    text-align: center;
+}
+
+.title_menu {
+    background-color: #33b35a;
+    color: white;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #e41313 !important;
+    width: 76px !important;
+}
+
+i {
+    display: inline-block;
+    border-radius: 6px;
+    font-size: 1.4rem;
+}
+
+.icon_red {
+    color: red;
+}
+
+.marco {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #d47e7e;
+}

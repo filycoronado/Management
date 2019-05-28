@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-lg-8 mx-auto marco">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h4>Edit Transaction</h4>
+            </div>
+            <div class="card-body">
+                <form class="form" name="save_form" ng-submit="update_transaction(save_form.$valid)">
+                    <div class="divider">
+                        <h3>Current Transaction</h3>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="inlineFormInput">Customer Name</label>
+                            <input name="name"
+                                   ng-class="{ 'error' : save_form.name.$invalid && !save_form.name.$pristine }"
+                                   ng-model="ticket.nameclient" id="inlineFormInput" type="text" placeholder="Jane Doe"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Transaction Date</label>
+                            <input ng-model="ticket.fecha" id="inlineFormInputGroup" type="date"
+                                   class="mr-3 form-control form-control"  >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Agency</label>
+                            <select class="form-control" name="location" ng-model="ticket.agency">
+                                <option  value="101">101</option>
+                                <option  value="102">102</option>
+                                <option  value="103">103</option>
+                                <option  value="104">104</option>
+                                <option  value="105">105</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Insurance</label>
+                            <input name="ins"
+                                   ng-class="{ 'error' : save_form.ins.$invalid && !save_form.ins.$pristine }"
+                                   ng-model="ticket.feecompany" id="inlineFormInput" type="text" placeholder="00.00"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">ADC</label>
+                            <input name="adc"
+                                   ng-class="{ 'error' : save_form.adc.$invalid && !save_form.adc.$pristine }"
+                                   ng-model="ticket.feeforaz" id="inlineFormInput" type="text" placeholder="00.00"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Office</label>
+                            <input name="office"
+                                   ng-class="{ 'error' : save_form.office.$invalid && !save_form.office.$pristine }"
+                                   ng-model="ticket.feeoffice" id="inlineFormInput" type="text" placeholder="00.00"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Dealer</label>
+                            <input name="dealeramount"
+                                   ng-class="{ 'error' : save_form.dealeramount.$invalid && !save_form.dealeramount.$pristine }"
+                                   ng-model="ticket.feedealer" id="inlineFormInput" type="text" placeholder="00.00"
+                                   class="mr-3 form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Insurance Company</label>
+                            <select class="form-control" name="location" ng-model="ticket.company">
+                                <option ng-repeat="c in companies" value="{{c.id}}">{{c.nombre}}</option>
+
+                            </select>
+                        </div>             
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Agent</label>
+                            <select class="form-control" name="location" ng-model="ticket.id_usuario">
+                                <option ng-repeat="a in agents" value="{{a.id}}">{{a.user}}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Cashier</label>
+                            <select class="form-control" name="location" ng-model="ticket.id_cashier">
+                                <option ng-repeat="c in cashiers" value="{{c.id}}">{{c.user}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input ng-disabled="ShowButon" type="submit" value="Guardar" class="mr-3 btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,281 @@
+<div class="row">
+    <div class="col-lg-8 mx-auto marco">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h4>Register new customer</h4>
+            </div>
+            <div class="card-body">
+                <form class="form" name="save_form" ng-submit="save_customer()">
+                    <div class="divider">
+                        <h3>Customer:</h3>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="inlineFormInput">Customer Name</label>
+                            <input name="name"
+                                   ng-class="{ 'error' : save_form.name.$invalid && !save_form.name.$pristine }"
+                                   ng-model="client.name" id="inlineFormInput" type="text" placeholder="Jane Doe"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">D.O.B</label>
+                            <input ng-model="client.birth_date" id="inlineFormInputGroup" type="date"
+                                   class="mr-3 form-control form-control"  >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Languaje</label>
+                            <select class="form-control" name="location" ng-model="client.languaje">
+                                <option  value="2">Spanish</option>
+                                <option  value="1">English</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Address</label>
+                            <input name="Address"
+                                   ng-class="{ 'error' : save_form.Address.$invalid && !save_form.Address.$pristine }"
+                                   ng-model="client.address" id="inlineFormInput" type="text" placeholder="Ajoway 500"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">City</label>
+                            <input name="City"
+                                   ng-class="{ 'error' : save_form.City.$invalid && !save_form.City.$pristine }"
+                                   ng-model="client.city" id="inlineFormInput" type="text" placeholder="Tucson"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Zip Code</label>
+                            <input name="zipcode"
+                                   ng-class="{ 'error' : save_form.zipcode.$invalid && !save_form.zipcode.$pristine }"
+                                   ng-model="client.zipcode" id="inlineFormInput" type="text" placeholder="56891"
+                                   class="mr-3 form-control" required>
+                        </div>
+                    </div>
+
+
+                    <div class="divider">
+                        <h3>Contact:</h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInput">Email</label>
+                            <input ng-model="client.mail" id="inlineFormInput" type="email" class="mr-3 form-control"
+                                   placeholder="myemail@example.com">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInput">Seconday Email</label>
+                            <input ng-model="client.addmail" id="inlineFormInput" type="text" class="mr-3 form-control"
+                                   placeholder="myemail@example.com">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Personal Phone</label>
+                            <input  ng-class="{ 'error' : save_form.phone.$invalid && !save_form.phone.$pristine }"
+                                    ng-model="client.phone" id="inlineFormInput" type="text" class="mr-3 form-control" name="phone"
+                                    ui-mask="(999)999-9999" ui-mask-placeholder="" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Secondary Phone</label>
+                            <input ng-model="client.phone2" id="inlineFormInput" type="text" class="mr-3 form-control"
+                                   ui-mask="(999)999-9999" ui-mask-placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Home Phone</label>
+                            <input ng-model="client.home_phone" id="inlineFormInput" type="text"
+                                   class="mr-3 form-control" ui-mask="(999)999-9999" ui-mask-placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Work Phone</label>
+                            <input ng-model="client.work_phone" id="inlineFormInput" type="text"
+                                   class="mr-3 form-control" ui-mask="(999)999-9999" ui-mask-placeholder="">
+                        </div>
+
+                    </div>
+
+                    <div class="divider">
+                        <h3>Policy Infromation:</h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Policy Type</label>
+                            <select class="form-control" name="location" ng-model="policy.type">
+                                <option ng-repeat="type in Types_policies" value="{{type.id}}">{{type.name}}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Insurance Company</label>
+                            <select class="form-control" name="location" ng-model="policy.company">
+                                <option ng-repeat="c in companies" value="{{c.id}}">{{c.nombre}}</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Policy Number</label>
+                            <input ng-class="{ 'error' : save_form.policy_number.$invalid && !save_form.policy_number.$pristine }"
+                                   ng-model="policy.policy_number" id="inlineFormInput" type="text" name="policy_number"
+                                   class="mr-3 form-control" placeholder="132464897" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Policy Location</label>
+                            <select class="form-control" name="location" ng-model="policy.location">
+                                <option value="1">OldTown</option>
+                                <option value="2">CVA</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">ADC Number</label>
+                            <input ng-model="policy.adc_number" id="inlineFormInput" type="email"
+                                   class="mr-3 form-control" placeholder="4243">
+                        </div>
+                    </div>
+
+                    <div class="divider">
+                        <h3>Dealer Information:</h3>
+                    </div>
+
+                    <div class="row">                      
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Is Dealership </label>
+                            <select class="form-control" name="dealer_is" ng-model="dealership.is_dealer">
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" ng-If="dealership.is_dealer==1">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Dealer</label>
+                            <select class="form-control" name="location" ng-model="dealership.dealer">
+                                <option ng-repeat="d in dealers" value="{{d.id}}">{{d.nombre}}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Seller Name</label>
+                            <input ng-class="{ 'error' : save_form.seller.$invalid && !save_form.seller.$pristine }"
+                                   ng-model="dealership.seller" id="inlineFormInput" type="text" name="seller"
+                                   class="mr-3 form-control" placeholder="Jon Due" required> 
+                        </div>
+                    </div>
+                    <div class="row" ng-If="dealership.is_dealer==1">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Type Delivery</label>
+                            <select class="form-control" name="location" ng-model="dealership.typeDelivery">
+                                <option value="1">Dalivery Payment</option>
+                                <option value="2">Dalivery Without Payment</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Delivery Name</label>
+                            <input ng-class="{ 'error' : save_form.delivery.$invalid && !save_form.delivery.$pristine }"
+                                   ng-model="dealership.delivery" id="inlineFormInput" type="text" name="delivery"
+                                   class="mr-3 form-control" placeholder="Jon Due" required>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <h3>Payment Information</h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Sell Status</label>
+                            <select id="TypeTransaction" class="form-control" ng-model="payment.status_transaction">
+                                <option value="1">Downpayment</option>
+                                <option value="2">Payment</option>
+                                <option value="3">Payment EFT</option>
+                                <option value="5">Downpayment EFT</option>
+                                <!--  <option value="6">CANCELLATION</option>-->
+                                <option value="7">REINSTATEMENT</option>
+                                <option value="8">RENEWAL </option>
+                                <!--<option value="9">NEW BUSINESS TRANSFER</option>-->
+                                <!--<option value="12">NEW BUSINESS TRANSFER EFT</option>-->
+                                <option value="10">PAY IN FULL</option>
+                                <option value="11">AGENT OF RECORD CHANGE</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Payment Method For Insurance</label>
+
+                            <select class="form-control" name="payment_method_ins"
+                                    ng-class="{ 'error' : save_form.payment_method_ins.$invalid && !save_form.payment_method_ins.$pristine }"
+                                    ng-model="payment.type_ins">
+                                <option value="1">CASH</option>
+                                <option value="2">DEBIT CARD</option>
+
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Payment Method For ADC</label>
+                            <select class="form-control" name="payment_method_adc"
+                                    ng-class="{ 'error' : save_form.payment_method_adc.$invalid && !save_form.payment_method_adc.$pristine }"
+                                    ng-model="payment.type_adc" required >
+                                <option value="1">CASH</option>
+                                <option value="2">DEBIT CARD</option>
+                                <option value="3">DEBIT CARD DIRECTLY IN ADC </option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-md-3">
+                            <label  for="inlineFormInputGroup" ng-If="(payment.type_adc === '1' || payment.type_ins==='1')" >Cashier</label>
+                            <select ng-If="(payment.type_adc === '1' || payment.type_ins==='1')" class="form-control" name="cashier"
+                                    ng-class="{ 'error' : save_form.cashier.$invalid && !save_form.cashier.$pristine }"
+                                    ng-model="payment.cashier" required >
+                                <option value=" ">Select a cashier</option>
+                                <option ng-repeat="c in cashiers" value="{{c.id}}">{{c.user}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Insurance</label>
+                            <input 
+                                ng-class="{ 'error' : save_form.ins_total.$invalid && !save_form.ins_total.$pristine }"
+                                ng-model="payment.ins_total" id="inlineFormInput" type="number" class="mr-3 form-control" name="ins_total"
+                                placeholder="0.00" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">ADC</label>
+                            <input ng-class="{ 'error' : save_form.adc_total.$invalid && !save_form.adc_total.$pristine }"
+                                   ng-model="payment.adc_total" id="inlineFormInputGroup"
+                                   type="number" name="adc_total" class="mr-3 form-control form-control" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Office</label>
+                            <input ng-class="{ 'error' : save_form.office_total.$invalid && !save_form.office_total.$pristine }"
+                                   ng-model="payment.office_total" id="inlineFormInputGroup" type="text" name="office_total"
+                                   class="mr-3 form-control form-control" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup" ng-If="(dealership.is_dealer === '1')"  >Dealer</label>
+                            <input ng-If="(dealership.is_dealer === '1')"
+                                   ng-class="{ 'error' : save_form.dealer_total.$invalid && !save_form.dealer_total.$pristine }"
+                                   ng-model="payment.dealer_total" id="inlineFormInputGroup" type="text" name="dealer_total"
+                                   class="mr-3 form-control form-control" placeholder="0.00" >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input ng-disabled="ShowButon" type="submit" value="Save" class="mr-3 btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

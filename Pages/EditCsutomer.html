@@ -1,0 +1,107 @@
+<div class="row">
+    <div class="col-lg-8 mx-auto marco">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h4>Update Customer</h4>
+            </div>
+            <div class="card-body">
+                <form class="form" name="save_form" ng-submit="save_customer()">
+                    <div class="divider">
+                        <h3>Customer:</h3>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="inlineFormInput">Customer Name</label>
+                            <input name="name"
+                                   ng-class="{ 'error' : save_form.name.$invalid && !save_form.name.$pristine }"
+                                   ng-model="client.nombre" id="inlineFormInput" type="text" placeholder="Jane Doe"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">D.O.B</label>
+                            <input ng-model="client.dob" id="inlineFormInputGroup" type="date"
+                                   class="mr-3 form-control form-control"  >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Languaje</label>
+                            <select class="form-control" name="location" ng-model="client.languajePrefernce">
+                                <option  value="2">Spanish</option>
+                                <option  value="1">English</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Address</label>
+                            <input name="Address"
+                                   ng-class="{ 'error' : save_form.Address.$invalid && !save_form.Address.$pristine }"
+                                   ng-model="client.address" id="inlineFormInput" type="text" placeholder="Ajoway 500"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">City</label>
+                            <input name="City"
+                                   ng-class="{ 'error' : save_form.City.$invalid && !save_form.City.$pristine }"
+                                   ng-model="client.city" id="inlineFormInput" type="text" placeholder="Tucson"
+                                   class="mr-3 form-control" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inlineFormInput">Zip Code</label>
+                            <input name="zipcode"
+                                   ng-class="{ 'error' : save_form.zipcode.$invalid && !save_form.zipcode.$pristine }"
+                                   ng-model="client.zipcode" id="inlineFormInput" type="text" placeholder="56891"
+                                   class="mr-3 form-control" required>
+                        </div>
+                    </div>
+
+
+                    <div class="divider">
+                        <h3>Contact:</h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInput">Email</label>
+                            <input ng-model="client.mail" id="inlineFormInput" type="email" class="mr-3 form-control"
+                                   placeholder="myemail@example.com">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInput">Seconday Email</label>
+                            <input ng-model="client.addemail" id="inlineFormInput" type="text" class="mr-3 form-control"
+                                   placeholder="myemail@example.com">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Personal Phone</label>
+                            <input  ng-class="{ 'error' : save_form.phone.$invalid && !save_form.phone.$pristine }"
+                                    ng-model="client.tel" id="inlineFormInput" type="text" class="mr-3 form-control" name="phone"
+                                    ui-mask="(999)999-9999" ui-mask-placeholder="" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Secondary Phone</label>
+                            <input ng-model="client.addphone" id="inlineFormInput" type="text" class="mr-3 form-control"
+                                   ui-mask="(999)999-9999" ui-mask-placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Home Phone</label>
+                            <input ng-model="client.homephone" id="inlineFormInput" type="text"
+                                   class="mr-3 form-control" ui-mask="(999)999-9999" ui-mask-placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Work Phone</label>
+                            <input ng-model="client.workphone" id="inlineFormInput" type="text"
+                                   class="mr-3 form-control" ui-mask="(999)999-9999" ui-mask-placeholder="">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <input ng-disabled="ShowButon" type="submit" value="Save" class="mr-3 btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

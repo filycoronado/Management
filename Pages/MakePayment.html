@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col-lg-8 mx-auto marco">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h4>Make A Payment</h4>
+            </div>
+            <div class="card-body">
+                <form class="form" name="save_form" ng-submit="save_customer()">
+                    <div class="divider">
+                        <h3>Payment Information</h3>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Is Endrose</label>
+                            <select id="type_endrose" class="form-control" ng-model="endrose.is_endrose">
+                                <option value="1">No</option>
+                                <option value="2">YES</option>                         
+                            </select>
+                        </div>
+
+                        <div ng-If="endrose.is_endrose==2" class="form-group col-md-9">
+                            <label for="inlineFormInputGroup">Concept</label>
+                            <input ng-class="{ 'error' : save_form.concept.$invalid && !save_form.concept.$pristine }"
+                                   ng-model="endrose.concept" id="inlineFormInputGroup" type="text" name="concept"
+                                   class="mr-3 form-control form-control" placeholder="concept" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Sell Status</label>
+                            <select id="TypeTransaction" class="form-control" ng-model="payment.status_transaction">
+                                <option value="1">Downpayment</option>
+                                <option value="2">Payment</option>
+                                <option value="3">Payment EFT</option>
+                                <option value="5">Downpayment EFT</option>
+                                <!--  <option value="6">CANCELLATION</option>-->
+                                <option value="7">REINSTATEMENT</option>
+                                <option value="8">RENEWAL </option>
+                                <!--<option value="9">NEW BUSINESS TRANSFER</option>-->
+                                <!--<option value="12">NEW BUSINESS TRANSFER EFT</option>-->
+                                <option value="10">PAY IN FULL</option>
+                                <option value="11">AGENT OF RECORD CHANGE</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Payment Method For Insurance</label>
+                            <select class="form-control" name="payment_method_ins"
+                                    ng-class="{ 'error' : save_form.payment_method_ins.$invalid && !save_form.payment_method_ins.$pristine }"
+                                    ng-model="payment.type_ins">
+                                <option value="1">CASH</option>
+                                <option value="2">DEBIT CARD</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Payment Method For ADC</label>
+                            <select class="form-control" name="payment_method_adc"
+                                    ng-class="{ 'error' : save_form.payment_method_adc.$invalid && !save_form.payment_method_adc.$pristine }"
+                                    ng-model="payment.type_adc" required >
+                                <option value="1">CASH</option>
+                                <option value="2">DEBIT CARD</option>
+                                <option value="3">DEBIT CARD DIRECTLY IN ADC </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label  for="inlineFormInputGroup" ng-If="(payment.type_adc === '1' || payment.type_ins==='1')" >Cashier</label>
+                            <select ng-If="(payment.type_adc === '1' || payment.type_ins==='1')" class="form-control" name="cashier"
+                                    ng-class="{ 'error' : save_form.cashier.$invalid && !save_form.cashier.$pristine }"
+                                    ng-model="payment.cashier" required >
+                                <option value=" ">Select a cashier</option>
+                                <option ng-repeat="c in cashiers" value="{{c.id}}">{{c.user}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInput">Insurance</label>
+                            <input 
+                                ng-class="{ 'error' : save_form.ins_total.$invalid && !save_form.ins_total.$pristine }"
+                                ng-model="payment.ins_total" id="inlineFormInput" type="number" class="mr-3 form-control" name="ins_total"
+                                placeholder="0.00" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">ADC</label>
+                            <input ng-class="{ 'error' : save_form.adc_total.$invalid && !save_form.adc_total.$pristine }"
+                                   ng-model="payment.adc_total" id="inlineFormInputGroup"
+                                   type="number" name="adc_total" class="mr-3 form-control form-control" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inlineFormInputGroup">Office</label>
+                            <input ng-class="{ 'error' : save_form.office_total.$invalid && !save_form.office_total.$pristine }"
+                                   ng-model="payment.office_total" id="inlineFormInputGroup" type="text" name="office_total"
+                                   class="mr-3 form-control form-control" placeholder="0.00" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input ng-disabled="ShowButon" type="submit" value="Save" class="mr-3 btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
