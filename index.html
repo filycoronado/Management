@@ -68,27 +68,28 @@
                     <ul id="side-main-menu" class="side-menu list-unstyled">
                         <li><a href="#/Home/"> <i class="icon-home"></i>Home</a></li>
                         <li><a href="#/New/Customer/"> <i class="icon-user"></i>New Customer</a></li>
-                        <li><a href="#admin" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Reports</a>
-                            <ul id="admin" class="collapse list-unstyled ">
-                                <li><a href="#/Report/Sales"><i class="icon-user"></i>Sales Report</a></li>
-                                <li><a href="#/Report/Dealer/Sales"><i class="icon-bill"></i>Sales Dealer Report</a></li>
-                                <li><a href="#/Report/Wellcome/"><i class="icon-user"></i>Wellcome Call</a></li>
+                        <li><a href="#reports" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Reports</a>
+                            <ul id="reports" class="collapse list-unstyled ">
+                                <li><a href="#/Report/Sales"><i class="fa fa-money"></i>Sales Report</a></li>
+                                <li><a href="#/Report/Dealer/Sales"><i class="fa fa-money"></i>Sales Dealer Report</a></li>
+                                <li><a href="#/Report/Wellcome/"><i class="fa fa-users"></i>Wellcome Call</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#marketing" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Marketing</a>
+                            <ul id="marketing" class="collapse list-unstyled ">
+                                <li><a href="#/Marketing/Map"><i class="fa fa-map"></i>Map</a></li>
+                                <li><a href="#/Marketing/Report/Sales/"><i class="fa fa-car"></i>Dealer Report</a></li>
+                               
                             </ul>
                         </li>
 
-                        <!--<li><a class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-interface-windows"></i>Reports</a>
-                            <ul id="" class="dropdown-menu list-unstyled ">
-                                <li><a href="#/Report/Sales"><i class="icon-user"></i>Sales Report</a></li>
-                                <li><a href="#/Report/Dealer/Sales"><i class="icon-bill"></i>Sales Dealer Report</a></li>
-                                <li><a href="#/Report/Wellcome/"><i class="icon-user"></i>Wellcome Call</a></li>
-                            </ul>
-                        </li>-->
-                        <li ng-if="user_local.rol === 1"><a href="#admin" aria-expanded="false" data-toggle="collapse"> <i
+                        <li><a href="#admin" aria-expanded="false" data-toggle="collapse"> <i
                                     class="icon-interface-windows"></i>Admin</a>
                             <ul id="admin" class="collapse list-unstyled ">
-                                <li><a href="#/Admin/Users"><i class="icon-user"></i>Usuarios</a></li>
-                                <li><a href="#/Admin/Report/Sales"><i class="icon-bill"></i>Sales Report</a></li>
-                                <li><a href="#/Admin/Report/">Page</a></li>
+                                <li><a href="#/Admin/Users"><i class="fa fa-users"></i>Employees</a></li>
+                                <li><a href="#/Admin/Companies"><i class="fa fa-book"></i>Employees</a></li>
+                                <li><a href="#/Admin/Dealers"><i class="fa fa-automobile"></i>Dealers</a></li>
+                               
                             </ul>
                         </li>
                     </ul>
