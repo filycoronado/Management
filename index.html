@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,7 +68,15 @@
                     <ul id="side-main-menu" class="side-menu list-unstyled">
                         <li><a href="#/Home/"> <i class="icon-home"></i>Home</a></li>
                         <li><a href="#/New/Customer/"> <i class="icon-user"></i>New Customer</a></li>
+                        <li><a href="#admin" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Reports</a>
+                            <ul id="admin" class="collapse list-unstyled ">
+                                <li><a href="#/Report/Sales"><i class="icon-user"></i>Sales Report</a></li>
+                                <li><a href="#/Report/Dealer/Sales"><i class="icon-bill"></i>Sales Dealer Report</a></li>
+                                <li><a href="#/Report/Wellcome/"><i class="icon-user"></i>Wellcome Call</a></li>
+                            </ul>
+                        </li>
 
+          
                         <li ng-if="user_local.rol === 1"><a href="#admin" aria-expanded="false" data-toggle="collapse"> <i
                                     class="icon-interface-windows"></i>Admin</a>
                             <ul id="admin" class="collapse list-unstyled ">
