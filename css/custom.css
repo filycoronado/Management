@@ -53,5 +53,24 @@ i {
 .checkbox input:checked + .warning:after{border-color:#FFC107}
 .checkbox input:checked + .danger:after{border-color:#f44336}
 .list-group-item{
-        border: 1px solid rgba(0,0,0,.125) !important;
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.dropdown-menu {
+    z-index: 1000;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    position: relative !important;
+    transform: inherit !important;
+}
+
+.side-navbar li a[aria-expanded="true"]::before {
+    content:none !important;
+    color: #fff;
 }
