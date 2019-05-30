@@ -283,6 +283,66 @@ class ApiController extends Controller {
         }
     }
 
+    public function actionUpdate_policy() {
+        $request = Yii::$app->request;
+        $id = $request->post('id_policy');
+        $model = new Policies();
+        $model->load(Yii::$app->getRequest()->getBodyParams(), 'policy');
+        if (($policy = Policies::findOne($id)) !== null) {
+            $policy->policynumber = $model->policynumber;
+            $policy->policy_type = $model->policy_type;
+            $policy->company_id = $model->company_id;
+            $policy->location = $model->location;
+            $policy->adc_number = $model->adc_number;
+            if ($policy->status_policy != $model->status_policy) {
+                $policy->fech_mod_status = date("Y-m-d");
+                $policy->status_policy = $model->status_policy;
+            }
+            $policy->date_cancellation = date("Y-m-d", strtotime($model->date_cancellation));
+            $policy->date_expiration = date("Y-m-d", strtotime($model->date_expiration));
+            if ($policy->update(false)) {
+                return $response = [
+                    "status" => "success",
+                    "message" => "Completado",
+                ];
+            } else {
+                return $response = [
+                    "status" => "error",
+                    "message" => "Error",
+                ];
+            }
+        }
+    }
+
+    public function actionUpdate_policy_status() {
+        $request = Yii::$app->request;
+        $id = $request->post('id_policy');
+        $model = new Policies();
+        $model->load(Yii::$app->getRequest()->getBodyParams(), 'policy');
+        if (($policy = Policies::findOne($id)) !== null) {
+            $policy->aplication=$model->aplication;
+            $policy->adcsinged=$model->adcsinged;
+            $policy->phoneNumber=$model->phoneNumber;
+            $policy->driverLicense=$model->driverLicense;
+            $policy->registration=$model->registration;
+            $policy->pictures=$model->pictures;
+            $policy->proofop=$model->proofop;
+            $policy->bank_info=$model->bank_info;
+            $policy->email_info=$model->email_info;      
+            if ($policy->update(false)) {
+                return $response = [
+                    "status" => "success",
+                    "message" => "Completado",
+                ];
+            } else {
+                return $response = [
+                    "status" => "error",
+                    "message" => "Error",
+                ];
+            }
+        }
+    }
+
     public function actionGet_customer_actives() {
         $request = Yii::$app->request;
         $name = $request->post('name');

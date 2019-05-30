@@ -53,8 +53,24 @@
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="inlineFormInput">Status Policy</label>
-                            <input ng-model="policy.adc_number" id="inlineFormInput" type="email"
-                                   class="mr-3 form-control" placeholder="4243">
+                            <select class="form-control" name="location" ng-model="policy.status_policy">
+                                <option value="1">PENDING CANCELLATION</option>
+                                <option value="2">CANCELLED NON-PAYMENT</option>
+                                <option value="3">CANCELLED UW</option>
+                                <option value="4">RETAINED</option>
+                                <option value="5">REINSTATED</option>
+                                <option value="6">CANCELLED SERVICE</option>
+                                <option value="7">EXPIRED</option>
+                                <option value="8">RENEWED</option>
+                                <option value="9">PENDING RENEWAL</option>
+                                <option value="10">NEW BUSINESS</option>
+                                <option value="11">NO LONGER CLIENT</option>
+                                <option value="12">UNDERWRITING</option>
+                                <option value="13">FLAT CANCELLATION</option>
+                                <option value="14">REWRITE</option>
+                                <option value="-5">INACTIVE</option>
+
+                            </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inlineFormInput">Cancellation Date</label>

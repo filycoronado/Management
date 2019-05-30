@@ -24,10 +24,18 @@ app.controller('UpdatePolicyController', ['$rootScope', '$scope', '$filter', '$r
             $scope.policy.company_id = $scope.policy.company_id + "";
             $scope.policy.policy_type = $scope.policy.policy_type + "";
             $scope.policy.location = $scope.policy.location + "";
+            $scope.policy.status_policy = $scope.policy.status_policy + "";
+            $scope.policy.date_cancellation = new Date($scope.policy.date_cancellation + "T12:00:00Z");
+            $scope.policy.date_expiration = new Date($scope.policy.date_expiration + "T12:00:00Z");
         });
         $scope.save_customer = function () {
             $scope.ShowButon = true;
-            $http.post('./Backend/web/index.php?r=api/save_client', {id_policy: id_policy, id_cliente: id_cliente, policy: $scope.policy}).then(function success(response) {
+            $http.post('./Backend/web/index.php?r=api/update_policy', {id_policy: id_policy, id_cliente: id_cliente, policy: $scope.policy}).then(function success(response) {
+                alert(response.data.message);
+            });
+        };
+        $scope.Update_policy = function () {
+            $http.post('./Backend/web/index.php?r=api/update_policy_status', {id_policy: id_policy, id_cliente: id_cliente, policy: $scope.policy}).then(function success(response) {
                 alert(response.data.message);
             });
         };

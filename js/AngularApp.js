@@ -37,6 +37,9 @@ app.config(function ($routeProvider) {
     }).when("/Policy/Edit/:pol/:cus", {
         templateUrl: "./pages/UpdatePolicy.html",
         controller: "UpdatePolicyController"
+    }).when("/Policy/Status/:pol/:cus", {
+        templateUrl: "./pages/ProfileStatus.html",
+        controller: "UpdatePolicyController"
     }).when("/Admin/Users", {
         templateUrl: "./pages/Users.html",
         controller: "AdminUserController"
