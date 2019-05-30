@@ -40,6 +40,9 @@ app.config(function ($routeProvider) {
     }).when("/Policy/Status/:pol/:cus", {
         templateUrl: "./pages/ProfileStatus.html",
         controller: "UpdatePolicyController"
+    }).when("/Report/Sales", {
+        templateUrl: "./pages/SalesReport.html",
+        controller: ""
     }).when("/Admin/Users", {
         templateUrl: "./pages/Users.html",
         controller: "AdminUserController"
