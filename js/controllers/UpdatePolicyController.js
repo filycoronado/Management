@@ -34,6 +34,38 @@ app.controller('UpdatePolicyController', ['$rootScope', '$scope', '$filter', '$r
                 alert(response.data.message);
             });
         };
+        $scope.set_value = function (key, keyvalue) {
+            var value = (!keyvalue);
+            switch (key) {
+                case 1:
+                    $scope.policy.aplication = value;
+                    break;
+                case 2:
+                    $scope.policy.phoneNumber = value;
+                    break;
+                case 3:
+                    $scope.policy.driverLicense = value;
+                    break;
+                case 4:
+                    $scope.policy.registration = value;
+                    break;
+                case 5:
+                    $scope.policy.pictures = value;
+                    break;
+                case 6:
+                    $scope.policy.proofop = value;
+                    break;
+                case 7:
+                    $scope.policy.adcsinged = value;
+                    break;
+                case 8:
+                    $scope.policy.bank_info = value;
+                    break;
+                case 9:
+                    $scope.policy.email_info = value;
+                    break;
+            }
+        };
         $scope.Update_policy = function () {
             $http.post('./Backend/web/index.php?r=api/update_policy_status', {id_policy: id_policy, id_cliente: id_cliente, policy: $scope.policy}).then(function success(response) {
                 alert(response.data.message);

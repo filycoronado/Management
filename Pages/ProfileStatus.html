@@ -5,35 +5,35 @@
                 <li class="list-group-item">
                     Application
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.aplication"/>
+                        <input type="checkbox"  ng-checked="(policy.aplication === 1)" ng-click="set_value(1, policy.aplication)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     Phone Number
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.phoneNumber"/>
+                        <input type="checkbox" ng-checked="(policy.phoneNumber === 1)" ng-click="set_value(2, policy.phoneNumber)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     Driver License
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.driverLicense"/>
+                        <input type="checkbox"  ng-checked="(policy.driverLicense === 1)" ng-click="set_value(3, policy.driverLicense)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     Registration
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.registration" />
+                        <input type="checkbox" ng-checked="(policy.registration === 1)" ng-click="set_value(4, policy.registration)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     Pictures
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.pictures"/>
+                        <input type="checkbox"  ng-checked="(policy.pictures === 1)" ng-click="set_value(5, policy.pictures)"/>
                         <span class="success"></span>
                     </label>
                 </li> 
@@ -44,28 +44,28 @@
                 <li class="list-group-item">
                     Proof Of Prior
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.proofop"/>
+                        <input type="checkbox"  ng-checked="(policy.proofop === 1)" ng-click="set_value(6, policy.proofop)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     ADC Singed
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.adcsinged"/>
+                        <input type="checkbox" ng-checked="(policy.adcsinged === 1)" ng-click="set_value(7, policy.adcsinged)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     Bank Information
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.bank_info"/>
+                        <input type="checkbox" ng-checked="(policy.bank_info === 1)" ng-click="set_value(8, policy.bank_info)"/>
                         <span class="success"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                     Email
                     <label class="checkbox">
-                        <input type="checkbox" ng-model="policy.email_info"/>
+                        <input type="checkbox" ng-checked="(policy.email_info === 1)" ng-click="set_value(9, policy.email_info)"/>
                         <span class="success"></span>
                     </label>
                 </li>
