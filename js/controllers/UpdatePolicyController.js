@@ -34,6 +34,7 @@ app.controller('UpdatePolicyController', ['$rootScope', '$scope', '$filter', '$r
                 alert(response.data.message);
             });
         };
+        //coment
         $scope.set_value = function (key, keyvalue) {
             var value = (!keyvalue);
             switch (key) {
