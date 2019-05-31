@@ -320,15 +320,15 @@ class ApiController extends Controller {
         $model = new Policies();
         $model->load(Yii::$app->getRequest()->getBodyParams(), 'policy');
         if (($policy = Policies::findOne($id)) !== null) {
-            $policy->aplication=$model->aplication;
-            $policy->adcsinged=$model->adcsinged;
-            $policy->phoneNumber=$model->phoneNumber;
-            $policy->driverLicense=$model->driverLicense;
-            $policy->registration=$model->registration;
-            $policy->pictures=$model->pictures;
-            $policy->proofop=$model->proofop;
-            $policy->bank_info=$model->bank_info;
-            $policy->email_info=$model->email_info;      
+            $policy->aplication = $model->aplication;
+            $policy->adcsinged = $model->adcsinged;
+            $policy->phoneNumber = $model->phoneNumber;
+            $policy->driverLicense = $model->driverLicense;
+            $policy->registration = $model->registration;
+            $policy->pictures = $model->pictures;
+            $policy->proofop = $model->proofop;
+            $policy->bank_info = $model->bank_info;
+            $policy->email_info = $model->email_info;
             if ($policy->update(false)) {
                 return $response = [
                     "status" => "success",
@@ -367,6 +367,52 @@ class ApiController extends Controller {
                         ->with('customer')
                         ->asArray()
                         ->all();
+    }
+
+    public function actionGet_sales_report() {
+        $request = Yii::$app->request;
+        $report = $request->post('report');
+        $start_date = date("Y-m-d", strtotime($report['start_date']));
+        $finish_date = date("Y-m-d", strtotime($report['finish_date']));
+        $company = "";
+        $agent = "";
+        $transaction = "";
+        $cashier = "";
+        $erase = "";
+        $is_dealer="";
+        if ($report['company'] != "") {
+            $company = "company=" . $report['company'];
+        }
+        if ($report['agent'] != "") {
+            $agent = "id_user=" . $report['agent'];
+        }
+        if ($report['type_transaction'] != "") {
+            $transaction = "Dpayment=" . $report['type_transaction'];
+        }
+        if ($report['cashier'] != "") {
+            $cashier = "id_cashier=" . $report['cashier'];
+        }
+        if ($report['erase'] != "") {
+            if ($report['erase'] == 2) {
+                $erase = "erase!=1";
+            } else if ($report['erase'] == 1) {
+                $erase = "erase=1";
+            }
+        }
+
+        $payments = Payments::find()
+                ->where(['between', 'fecha', $start_date, $finish_date])
+                ->andwhere($company)
+                ->andWhere($agent)
+                ->andWhere($transaction)
+                ->andWhere($cashier)
+                ->andWhere($erase)
+                ->joinWith('policies')
+                ->andWhere("policy_type=" . $report['type_policy'])
+                ->asArray()
+                ->all();
+
+        return $payments;
     }
 
     public function actionLogin_user() {

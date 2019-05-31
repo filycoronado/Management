@@ -57,11 +57,12 @@ class Policies extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_cliente', 'date_alta', 'pago_mensual', 'policy_type', 'dealer_id', 'company_id', 'policynumber', 'status_policy', 'fech_mod_status', 'date_cancellation', 'date_expiration', 'date_effective', 'pago_menusal_drviers', 'location', 'id_user', 'CancelForPending', 'DateModifyDaysP', 'CountPendingDays', 'driverLicense', 'id_user_update', 'date_update'], 'required'],
-            [['id_cliente', 'pago_mensual', 'policy_type', 'dealer_id', 'company_id', 'status_policy', 'pago_menusal_drviers', 'location', 'id_user', 'CountPendingDays', 'aplication', 'phoneNumber', 'driverLicense', 'registration', 'pictures', 'proofop', 'adcsinged', 'languajePrefernce', 'bank_info', 'email_info'], 'integer'],
+            [['Id', 'id_cliente', 'date_alta', 'pago_mensual', 'policy_type', 'dealer_id', 'company_id', 'policynumber', 'status_policy', 'fech_mod_status', 'date_cancellation', 'date_expiration', 'date_effective', 'pago_menusal_drviers', 'location', 'id_user', 'CancelForPending', 'DateModifyDaysP', 'CountPendingDays', 'driverLicense', 'id_user_update', 'date_update'], 'required'],
+            [['Id', 'id_cliente', 'pago_mensual', 'policy_type', 'dealer_id', 'company_id', 'status_policy', 'pago_menusal_drviers', 'location', 'id_user', 'CountPendingDays', 'aplication', 'phoneNumber', 'driverLicense', 'registration', 'pictures', 'proofop', 'adcsinged', 'languajePrefernce', 'bank_info', 'email_info'], 'integer'],
             [['date_alta', 'fech_mod_status', 'date_cancellation', 'date_expiration', 'date_effective', 'CancelForPending', 'DateModifyDaysP', 'date_exp_adc', 'date_update'], 'safe'],
             [['policynumber', 'adc_number'], 'string'],
             [['id_user_update'], 'string', 'max' => 45],
+            [['Id'], 'unique'],
         ];
     }
 

@@ -41,9 +41,9 @@ ALTER TABLE Customers ADD COLUMN adc_number VARCHAR(25) AFTER date_update;
 
 ALTER TABLE `Customers` CHANGE COLUMN `id_usurio` `id_usuario` INT(11) NOT NULL;
 ALTER TABLE `Customers` ADD CONSTRAINT fk_users_id FOREIGN KEY (id_usuario) REFERENCES users(id);
-ALTER TABLE `payments` ADD CONSTRAINT fk_policies_id FOREIGN KEY (id_usuario) REFERENCES policies(id_policy);
+ALTER TABLE `payments` ADD CONSTRAINT policies FOREIGN KEY (id_policy) REFERENCES policies(Id);
 
-
+//ALTER TABLE `policies` ADD CONSTRAINT fk_policies_id FOREIGN KEY (Id) REFERENCES payments(id_policy);
 
 
 ALTER TABLE Customers RENAME COLUMN id_usurio	 TO id_usuario; 

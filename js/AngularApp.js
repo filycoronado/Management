@@ -42,7 +42,7 @@ app.config(function ($routeProvider) {
         controller: "UpdatePolicyController"
     }).when("/Report/Sales", {
         templateUrl: "./pages/SalesReport.html",
-        controller: ""
+        controller: "SalesReportController"
     }).when("/Admin/Users", {
         templateUrl: "./pages/Users.html",
         controller: "AdminUserController"

@@ -32,9 +32,6 @@ app.controller('NewPolicyController', ['$rootScope', '$scope', '$filter', '$rout
         $http.get('./Backend/web/index.php?r=api/get_types', {}).then(function success(response) {
             $scope.Types_policies = response.data;
         });
-        $http.get('./Backend/web/index.php?r=api/get_types', {}).then(function success(response) {
-            $scope.Types_policies = response.data;
-        });
         $http.get('./Backend/web/index.php?r=api/get_companies', {}).then(function success(response) {
             $scope.companies = response.data;
         });

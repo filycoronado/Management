@@ -40,24 +40,22 @@ use Yii;
  * @property int $agcode
  * @property int $credit
  * @property int $erase
- * @property string $id_policy
+ * @property int $id_policy
  * @property int $recivedcashConfirmation
  */
-class Payments extends \yii\db\ActiveRecord
-{
+class Payments extends \yii\db\ActiveRecord {
+
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'payments';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['agency', 'company', 'companytype', 'dealership', 'dealertype', 'id_usuario', 'id_cashier', 'officetype', 'poc', 'typeaz', 'typeDO', 'Dpayment', 'DeliveryT', 'id_cliente', 'agcode', 'credit', 'erase', 'id_policy', 'recivedcashConfirmation'], 'integer'],
             [['amountpoc', 'feecompany', 'feedealer', 'feeforaz', 'feeoffice', 'total', 'valponchon'], 'number'],
@@ -70,8 +68,7 @@ class Payments extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'agency' => 'Agency',
@@ -110,4 +107,13 @@ class Payments extends \yii\db\ActiveRecord
             'recivedcashConfirmation' => 'Recivedcash Confirmation',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPolicies() {
+        return $this->hasOne(Policies::className(), ['Id' => 'id_policy']);
+    }
+
+
 }
