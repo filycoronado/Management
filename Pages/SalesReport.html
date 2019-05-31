@@ -1,72 +1,110 @@
 <div class="ml-1">
     <form  name="save_form" ng-submit="SerachCustomer()">
         <div class="row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-1">
                 <label for="inlineFormInput">Agency</label>
-                <select class="form-control" name="agency" ng-model="policy.location" style="">
-                    <option value="1" selected="selected">OldTown</option>
-                    <option value="2">CVA</option>
-
+                <select class="form-control" name="agency" ng-model="report.agency" >
+                    <option value="101" >101</option>
+                    <option value="102">102</option>
+                    <option value="103" >103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
                 </select>
             </div>
             <div class="form-group col-md-2">
                 <label for="inlineFormInput">Agent</label>
-                <select class="form-control" name="agent" ng-model="policy.location" style="">
-                    <option value="1" selected="selected">OldTown</option>
-                    <option value="2">CVA</option>
+                <select class="form-control" name="agent" ng-model="report.agent" style="">
+                    <option value="">--Agent--</option>
+                    <option ng-repeat="a in agents" value="{{a.id}}">{{a.user}}</option>
+
 
                 </select>
             </div>
             <div class="form-group col-md-2">
-                <label for="inlineFormInput">Start Date</label>
-                <input class="form-control " name="date1" ng-model="policy.location" type="date">
-
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inlineFormInput">Finish Date</label>
-                <input class="form-control " name="date1" ng-model="policy.location" type="date">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-2">
                 <label for="inlineFormInput">Type Policy</label>
-                <select class="form-control" name="agency" ng-model="policy.location" style="">
-                    <option value="1" selected="selected">OldTown</option>
-                    <option value="2">CVA</option>
+                <select class="form-control" name="agency" ng-model="report.type_policy" style="">
+                    <option ng-repeat="tp in Types_policies" value="{{tp.id}}">{{tp.name}}</option>
+
 
                 </select>
             </div>
             <div class="form-group col-md-2">
                 <label for="inlineFormInput">Company</label>
-                <select class="form-control" name="agent" ng-model="policy.location" style="">
-                    <option value="1" selected="selected">OldTown</option>
-                    <option value="2">CVA</option>
+                <select class="form-control" name="company" ng-model="report.company" >
+                    <option value="">--Company--</option>
+                    <option ng-repeat="c in companies" value="{{c.id}}">{{c.nombre}}</option>
 
                 </select>
             </div>
             <div class="form-group col-md-2">
-                <label for="inlineFormInput">Type Transaction</label>
-                <input class="form-control " name="date1" ng-model="policy.location" type="date">
+                <label for="inlineFormInput">Start Date</label>
+                <input class="form-control " name="date1" ng-model="report.start_date" type="date">
 
             </div>
             <div class="form-group col-md-2">
-                <label for="inlineFormInput">Pyment Method</label>
-                <input class="form-control " name="date1" ng-model="policy.location" type="date">
+                <label for="inlineFormInput">Finish Date</label>
+                <input class="form-control " name="date1" ng-model="report.finish_date" type="date">
 
             </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="inlineFormInput">Type Transaction</label>
+                <select class="form-control" name="company" ng-model="report.type_transaction" >
+                    <option value="" >--Select--</option>
+                    <option value="1">NEW BUSINESS</option>
+                    <option value="2">PAYMENT</option>
+                    <option value="4">ENDORSE</option>
+                    <option value="3">PAYMENT EFT</option>
+                    <option value="5">DOWNPAYMENT EFT</option>
+                    <option value="6">CANCELLATION </option>
+                    <option value="7">REINSTATEMENT </option>
+                    <option value="8">RENEWAL </option>
+                    <option value="9">NEW BUSINESS TRANSFER</option>
+                    <option value="12">NEW BUSINESS TRANSFER EFT</option>
+                    <option value="10">PAY IN FULL</option>
+                    <option value="11">AGENT OF RECORD CHANGE</option>
+                </select>
+
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inlineFormInput">Pyment Method Insurance</label>
+                <select class="form-control" name="pm" ng-model="report.payment_method" >
+                    <option value="" >--Select--</option>
+                    <option value="1">Cash</option>
+                    <option value="2" >Card</option>
+                </select>
+
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inlineFormInput">Pyment Method ADC</label>
+                <select class="form-control" name="pm" ng-model="report.payment_method_adc" >
+                    <option value="" >--Select--</option>
+                    <option value="1">Cash</option>
+                    <option value="2" >Card</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inlineFormInput">Erase</label>
+                <select class="form-control" name="pm" ng-model="report.erase" >
+                    <option value="" >--Select--</option>
+                    <option value="1">YES</option>
+                    <option value="2" >NO</option>
+                </select>
+            </div>
+
             <div class="form-group col-md-2">
                 <label for="inlineFormInput">Cashier</label>
-                <select class="form-control" name="agent" ng-model="policy.location" style="">
-                    <option value="1" selected="selected">OldTown</option>
-                    <option value="2">CVA</option>
+                <select class="form-control" name="cashier" ng-model="report.cashier" style="">
+                    <option value="">--Cashier--</option>
+                    <option ng-repeat="c in cashiers" value="{{c.id}}">{{c.user}}</option>
 
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-2">
-               <input type="submit" class="btn btn-primary" placeholder="" value="Search">
+                <input type="submit" class="btn btn-primary" placeholder="" value="Search">
             </div>
         </div>
     </form>
@@ -109,6 +147,12 @@
                                     </a>
                                 </th>
                                 <th>
+                                    <a class="col-sort" ng-click="sort_by('user')">
+                                        User<span ng-show="sortingOrder == 'user'"
+                                                  ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                    </a>
+                                </th>
+                                <th>
                                     <a class="col-sort" ng-click="sort_by('Customer')">
                                         Customer<span ng-show="sortingOrder == 'client'"
                                                       ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
@@ -116,26 +160,50 @@
                                 </th>
                                 <th>
                                     <a class="col-sort" ng-click="sort_by('create_date')">
-                                        Create Date<span ng-show="sortingOrder == 'fechainicio'"
-                                                         ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                        Date<span ng-show="sortingOrder == 'fechainicio'"
+                                                  ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
                                     </a>
                                 </th>
                                 <th>
-                                    <a class="col-sort" ng-click="sort_by('Address')">
-                                        Address<span ng-show="sortingOrder == 'fechaexp'"
+                                    <a class="col-sort" ng-click="sort_by('Company')">
+                                        Company<span ng-show="sortingOrder == 'Company'"
                                                      ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
                                     </a>
                                 </th>
                                 <th>
-                                    <a class="col-sort" ng-click="sort_by('Phone')">
-                                        Phone<span ng-show="sortingOrder == 'membresia'"
+                                    <a class="col-sort" ng-click="sort_by('INS')">
+                                        INS<span ng-show="sortingOrder == 'membresia'"
+                                                 ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a class="col-sort" ng-click="sort_by('ADC')">
+                                        ADC<span ng-show="sortingOrder == 'servicio'"
+                                                 ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a class="col-sort" ng-click="sort_by('Office')">
+                                        Office<span ng-show="sortingOrder == 'Office'"
+                                                    ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a class="col-sort" ng-click="sort_by('Total')">
+                                        Total<span ng-show="sortingOrder == 'Total'"
                                                    ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
                                     </a>
                                 </th>
                                 <th>
-                                    <a class="col-sort" ng-click="sort_by('email')">
-                                        email<span ng-show="sortingOrder == 'servicio'"
-                                                   ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                    <a class="col-sort" ng-click="sort_by('Total')">
+                                        PM<span ng-show="sortingOrder == 'Total'"
+                                                ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a class="col-sort" ng-click="sort_by('Cashier')">
+                                        Cashier<span ng-show="sortingOrder == 'Cashier'"
+                                                     ng-class="!reverse ? 'fa fa-caret-down' : 'fa fa-caret-up'"></span>
                                     </a>
                                 </th>
                                 <th>
@@ -147,13 +215,33 @@
                             <tr
                                 ng-repeat="c in Customer_actives| filter:searchbox | orderBy:sortingOrder:reverse | startFrom:(currentPage - 1) * itemsPerPage | limitTo:itemsPerPage">
                                 <td scope="row">{{$index + 1}}</td>
-                                <td><a href="#/Customer/Profile/{{c.id}}">{{c.nombre}}</a></td>
-                                <td>{{c.fechaalta}}</td>
-                                <td>{{c.address}}</td>
-                                <td>{{c.tel}}</td>
-                                <td>{{c.mail}}</td>
-                                <td></td>
-
+                                <td>{{get_agent(c.id_usuario)}}</td>
+                                <td><a href="#/Customer/Profile/{{c.policies.id_cliente}}">{{c.nameclient}}</a></td>
+                                <td>{{c.fecha| date:'MM/dd/yyyy'}}-{{c.horat | date: "h:s:i a"}}</td>
+                                <td>{{get_company(c.company)}}</td>
+                                <td>{{c.feecompany}}</td>
+                                <td>{{c.feeforaz}}</td>
+                                <td>{{c.feeoffice}}</td>
+                                <td>{{c.total}}</td>
+                                <td>{{get_pm(c.companytype)}}</td>
+                                <td>{{get_agent(c.id_cashier)}}</td>
+                                <td>
+                                    <a href="#/Customer/{{c.id}}">
+                                        <div class="wrapper count-title d-flex">
+                                            <div class="icon"><i class="fa fa-download icon_red"></i></div>
+                                        </div>
+                                    </a>
+                                    <a href="#/Edit/Transactions/{{c.id}}">
+                                        <div class="wrapper count-title d-flex">
+                                            <div class="icon"><i class="fa fa-edit icon_red"></i></div>
+                                        </div>
+                                    </a>
+                                    <a href="#/Customer/{{c.id}}">
+                                        <div class="wrapper count-title d-flex">
+                                            <div class="icon"><i class="fa fa-remove icon_red"></i></div>
+                                        </div>
+                                    </a>
+                                </td>
                             </tr>
 
                         </tbody>
